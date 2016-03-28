@@ -769,14 +769,16 @@ if (! function_exists('view')) {
      * @param  array   $mergeData
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    function view($view = null, $data = [], $mergeData = [])
-    {
-        $factory = app(ViewFactory::class);
+	function view($view = NULL, $data = [], $mergeData = [])
+	{
+		$factory = app('Illuminate\Contracts\View\Factory');
 
-        if (func_num_args() === 0) {
-            return $factory;
-        }
+		if (func_num_args() === 0) {
+			return $factory;
+		}
 
-        return $factory->make($view, $data, $mergeData);
-    }
+		$data['theme_file_path'] = \Illuminate\Support\Facades\Request::getFacadeRoot()->theme_file_path;
+
+		return $factory->make($view, $data, $mergeData);
+	}
 }
