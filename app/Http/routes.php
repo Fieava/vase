@@ -13,8 +13,12 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+	Route::get('/', ['uses' => 'LoginController@login_form']);
+	Route::get('/login', ['uses' => 'LoginController@login_form']);
+	Route::post('/login', ['uses' => 'LoginController@login']);
+
+	Route::group(['middleware' => ['access_control']], function () {
+		Route::get('/test', ['name' => 'Test.test', 'uses' => 'IndexController@index']);
+	});
 
 });

@@ -1,0 +1,20 @@
+#single_login {
+	width:         500px;
+	height:        230px;
+	border-radius: 2px;
+}
+
+#site_name {
+	display: block;
+	margin:  15px 0 0 15px;
+}
+
+.login_input {
+	line-height:   25px;
+	border:        1px solid #D4D4D4;
+	border-radius: 2px;
+	padding:       2px 5px 2px 10px;
+	font-family:   FontAwesome, 'Source Code Pro', Monaco, Consolas, "Lucida Console", monospace;
+	margin:        2px 0 0 0;
+	background:    rgba(255, 255, 255, 0.5);
+}

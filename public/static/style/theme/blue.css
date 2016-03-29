@@ -1,0 +1,13 @@
+#single_page_body {
+	background: linear-gradient(#EEEEEE, #D6D6D6);
+}
+
+#single_login {
+	border:           1px solid #BBDEFB;
+	box-shadow:       0 0 3px #DDDDDD;
+	background-color: #F9F9F9;
+}
+
+#site_name {
+	color: #333333;
+}
