@@ -1,18 +1,3 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 3.84
-Source Server Version : 50628
-Source Host           : 10.110.3.84:3306
-Source Database       : vase
-
-Target Server Type    : MYSQL
-Target Server Version : 50628
-File Encoding         : 65001
-
-Date: 2016-03-30 16:49:48
-*/
-
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
