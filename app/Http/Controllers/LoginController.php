@@ -7,7 +7,9 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class LoginController extends BaseController {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -26,10 +28,10 @@ class LoginController extends BaseController {
 			'password' => 'required|max:255',
 		]);
 
-		if (Auth::attempt(['email' => $request->username, 'password' => $request->password])) {
+		if (Auth::attempt(['email' => $request->username, 'password' => $request->password, 'can_login' => 1])) {
 			return redirect()->intended('dashboard');
 		} else {
-			return redirect('login')->withErrors(['fail' => 'Username or Password wrong']);
+			return redirect('login')->withErrors(['fail' => "Can't log you in"]);
 		}
 	}
 }
