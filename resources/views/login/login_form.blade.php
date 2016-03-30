@@ -12,7 +12,7 @@
 				{{ csrf_field() }}
 				<input class="login_input" placeholder=" User" name="username" type="text" value="">
 				<input class="login_input" placeholder=" Password" name="password" type="password" value="">
-				<span id="prompt">User name or password error</span>
+				<span id="prompt">@if($errors){{ $errors->first() }}@endif</span>
 				<input class="login_submit" type="submit" value="Login">
 			</form>
 		</div>
