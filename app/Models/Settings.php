@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebTheme extends Model {
-	protected $table      = 'web_theme';
+class Settings extends Model {
+	protected $table      = 'settings';
 	protected $fillable   = ['*'];
 	public    $timestamps = FALSE;
 }

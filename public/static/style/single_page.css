@@ -1,20 +1,88 @@
+#single_page_body {
+	background-size:     auto;
+	background-position: center;
+}
+
+#single_login_container {
+	position: relative;
+	width:    500px;
+	height:   230px;
+}
+
 #single_login {
+	position:            fixed;
+	width:               500px;
+	height:              230px;
+	border-radius:       2px;
+	background-size:     auto;
+	background-position: center;
+	filter:              blur(5px);
+}
+
+#single_login_content {
+	position:      fixed;
 	width:         500px;
 	height:        230px;
 	border-radius: 2px;
+	z-index:       9999;
+	box-sizing:    border-box;
+}
+
+#single_login_content form {
+	text-align: center;
+	margin-top: 20px;
 }
 
 #site_name {
-	display: block;
-	margin:  15px 0 0 15px;
+	display:       block;
+	margin:        15px 0 0 0;
+	padding:       8px 0 8px 15px;
+	width:         460px;
+	border:        1px solid transparent;
+	border-radius: 0 2px 2px 0;
+}
+
+#prompt {
+	display:     block;
+	padding:     5px 0 5px 0;
+	text-shadow: 0 0 5px #FFFFFF;
 }
 
 .login_input {
-	line-height:   25px;
-	border:        1px solid #D4D4D4;
-	border-radius: 2px;
-	padding:       2px 5px 2px 10px;
-	font-family:   FontAwesome, 'Source Code Pro', Monaco, Consolas, "Lucida Console", monospace;
-	margin:        2px 0 0 0;
-	background:    rgba(255, 255, 255, 0.5);
+	display:             block;
+	line-height:         25px;
+	border-radius:       2px;
+	padding:             2px 5px 2px 10px;
+	font-family:         FontAwesome, 'Source Code Pro', Monaco, Consolas, "Lucida Console", monospace;
+	margin:              5px auto 5px auto;
+	width:               230px;
+	transition-duration: 0.1s;
+}
+
+.login_input:hover {
+	transition-duration: 0.1s;
+}
+
+.login_input:active {
+	transition-duration: 0.1s;
+}
+
+.login_submit {
+	display:             inline-block;
+	line-height:         25px;
+	border-radius:       2px;
+	padding:             2px 10px 2px 10px;
+	margin-top:          5px;
+	width:               170px;
+	transition-duration: 0.1s;
+}
+
+.login_submit:hover {
+	transition-duration: 0.1s;
+}
+
+#wallpaper_text {
+	bottom:   15px;
+	right:    20px;
+	position: absolute;
 }

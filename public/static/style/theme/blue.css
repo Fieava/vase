@@ -1,13 +1,44 @@
-#single_page_body {
-	background: linear-gradient(#EEEEEE, #D6D6D6);
-}
-
-#single_login {
-	border:           1px solid #BBDEFB;
-	box-shadow:       0 0 3px #DDDDDD;
-	background-color: #F9F9F9;
+#single_login_content {
+	border:           3px solid #BBDEFB;
+	box-shadow:       0 0 3px #000000;
+	background-color: rgba(255, 255, 255, 0.4);
 }
 
 #site_name {
 	color: #333333;
+}
+
+#site_name {
+	background-color: #BBDEFB;
+	color:            #333333;
+}
+
+.login_input {
+	border:     1px solid #F0F0F0;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.login_input:hover {
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.login_input:active, .login_input:focus {
+	border:     1px solid #FFFFFF;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.login_submit {
+	background-color: #2196F3;
+	border:           1px solid #90CAF9;
+	color:            #FFFFFF;
+	box-shadow:       0 0 2px #1E88E5 inset;
+}
+
+.login_submit:hover {
+	background-color: #42A5F5;
+}
+
+#wallpaper_text {
+	color:       #FFFFFF;
+	text-shadow: 0 0 4px #000000;
 }

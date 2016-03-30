@@ -14,4 +14,4 @@ CREATE TABLE `web_theme` (
 -- ----------------------------
 -- Records of web_theme
 -- ----------------------------
-INSERT INTO `web_theme` VALUES ('1', 'bule', '1');
+INSERT INTO `web_theme` VALUES ('1', 'blue', '1');
