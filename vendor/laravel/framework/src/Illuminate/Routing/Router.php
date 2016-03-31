@@ -656,8 +656,8 @@ class Router implements RegistrarContract {
 		$request->setRouteResolver(function () use ($route) {
 			return $route;
 		});
-
-		$request->setAccessName($route->getAction()['name']);
+		$accessName = isset($route->getAction()['name']) ? $route->getAction()['name'] : NULL;
+		$request->setAccessName($accessName);
 
 		$this->events->fire(new Events\RouteMatched($route, $request));
 
