@@ -1,6 +1,6 @@
 @extends('frame.single_page_frame')
 @section('title','User Login')
-@section('description','')
+@section('description','Login Page')
 @section('keywords','')
 
 @section('content')
