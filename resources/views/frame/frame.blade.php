@@ -7,7 +7,7 @@
 	<meta name="keywords" content="@yield('keywords')"/>
 	<link href="{{ asset('/static/style/index.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('/static/style/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{ $theme_file_path }}" rel="stylesheet" type="text/css">
+	<link href="{{ $WebData['theme_file_path'] }}" rel="stylesheet" type="text/css">
 </head>
 <body>
 <script src="{{ asset('/static/js/jquery-2.1.4.min.js') }}"></script>
@@ -77,24 +77,5 @@
 		<div class="width_limit"></div>
 	</section>
 </footer>
-<script>
-	var mouse_in = false;
-	var path_menu = $('#path_menu_box');
-	path_menu.mouseenter(function () {
-		mouse_in = true;
-		setTimeout('show_path_menu()', 500);
-	});
-	path_menu.mouseleave(function () {
-		mouse_in = false;
-		show_path_menu();
-	});
-	$(document).ready(function () {
-		// set the footer on the foot. :/
-		var content_div = $('#content');
-		if (content_div.height() < ($(window).height() - $('header').outerHeight(true) - $('nav').outerHeight(true) - $('footer').outerHeight(true) - (content_div.outerHeight(true) - content_div.height()))) {
-			content_div.css('height', $(window).height() - $('header').outerHeight(true) - $('nav').outerHeight(true) - $('footer').outerHeight(true) - (content_div.outerHeight(true) - content_div.height()));
-		}
-	});
-</script>
 </body>
 </html>

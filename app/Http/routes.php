@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::group(['middleware' => ['access_control']], function () {
 		Route::get('/test', ['name' => 'Test.test', 'uses' => 'IndexController@index']);
+		Route::get('/dashboard', ['name' => 'Index.dashboard', 'uses' => 'IndexController@dashboard']);
 	});
 
 });
