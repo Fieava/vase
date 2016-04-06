@@ -27,8 +27,12 @@ class WebThemeMid {
 			$wallpaper_date        = Settings::where('name', '=', 'page.wallpaper_date')->first();
 			$wallpaper_date->value = $wallpaper_data->images[0]->startdate;
 			$wallpaper_date->save();
-			$wallpaper_url    = Settings::where('name', '=', 'page.wallpaper_url')->first();
-			$wallpaper['url'] = $wallpaper_url->value = 'http://www.bing.com' . $wallpaper_data->images[0]->url;
+			$wallpaper_url = Settings::where('name', '=', 'page.wallpaper_url')->first();
+			if (strpos($wallpaper_data->images[0]->url, 'bing.net')) {
+				$wallpaper['url'] = $wallpaper_url->value = $wallpaper_data->images[0]->url;
+			} else {
+				$wallpaper['url'] = $wallpaper_url->value = 'http://www.bing.com' . $wallpaper_data->images[0]->url;
+			}
 			$wallpaper_url->save();
 			$wallpaper_text    = Settings::where('name', '=', 'page.wallpaper_text')->first();
 			$wallpaper['text'] = $wallpaper_text->value = $wallpaper_data->images[0]->copyright;
