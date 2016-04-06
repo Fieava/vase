@@ -21,4 +21,8 @@ class User extends Authenticatable {
 	public function purview() {
 		return $this->hasMany('App\Models\UserPurview', 'uid');
 	}
+
+	public function purview_executive() {
+		return $this->hasMany('App\Models\UserPurviewExecutive', 'uid');
+	}
 }

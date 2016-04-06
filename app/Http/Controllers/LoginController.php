@@ -20,7 +20,7 @@ class LoginController extends BaseController {
 
 	function login(Request $request) {
 		if (Auth::check() || Auth::viaRemember()) {
-			return redirect()->intended('dashboard');
+			return redirect()->intended('/');
 		}
 
 		$this->validate($request, [
@@ -29,7 +29,7 @@ class LoginController extends BaseController {
 		]);
 
 		if (Auth::attempt(['email' => $request->username, 'password' => $request->password, 'can_login' => 1])) {
-			return redirect()->intended('dashboard');
+			return redirect()->intended('/');
 		} else {
 			return redirect('login')->withErrors(['fail' => "Can't log you in"]);
 		}

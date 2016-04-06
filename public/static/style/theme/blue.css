@@ -42,3 +42,15 @@
 	color:       #FFFFFF;
 	text-shadow: 0 0 4px #000000;
 }
+
+#main_bar {
+	background: linear-gradient(#1565C0, #0D47A1);
+}
+
+#user_name {
+	color:         #FFFFFF;
+	border-top:    1px solid #1976D2;
+	border-bottom: 1px solid #1976D2;
+	background:    radial-gradient(#1976D2, #0D47A1);
+	/*box-shadow:    0 0 2px #448AFF;*/
+}

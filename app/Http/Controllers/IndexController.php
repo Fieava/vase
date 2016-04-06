@@ -9,10 +9,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class IndexController extends BaseController {
 	function index() {
-		echo 'ddd';
-	}
-
-	function dashboard() {
-		return view('frame.frame');
+		return view('index.index');
 	}
 }

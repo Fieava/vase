@@ -17,6 +17,7 @@
 	background-size:     auto;
 	background-position: center;
 	filter:              blur(5px);
+	-webkit-filter:      blur(5px);
 }
 
 #single_login_content {

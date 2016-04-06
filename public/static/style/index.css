@@ -3,12 +3,16 @@ html {
 }
 
 body {
-	margin:      0;
-	padding:     0;
-	font-size:   12px;
-	font-family: "微软雅黑", "华文细黑", serif;
-	height:      100%;
-	cursor:      default;
+	margin:         0;
+	padding:        0;
+	font-size:      12px;
+	font-family:    "微软雅黑", "华文细黑", serif;
+	height:         100%;
+	cursor:         default;
+	flex-wrap:      nowrap;
+	display:        flex;
+	flex-direction: row;
+	min-width:      1000px;
 }
 
 body, html {
@@ -25,4 +29,56 @@ a {
 
 .clear {
 	clear: both;
+}
+
+#main_bar {
+	max-width:  50px;
+	width:      50px;
+	box-sizing: border-box;
+	flex:       auto;
+}
+
+#avatar {
+	display: block;
+	margin:  5px 5px 2px 5px;
+}
+
+#avatar img {
+	border:        0px solid transparent;
+	border-radius: 2px;
+	box-sizing:    border-box;
+	width:         40px;
+	height:        40px;
+}
+
+#user_name {
+	display:       block;
+	width:         40px;
+	padding:       3px 5px;
+	text-align:    center;
+	text-overflow: ellipsis;
+	text-overflow: ' ...';
+	overflow:      hidden;
+}
+
+#sub_nav {
+	max-width:  180px;
+	width:      180px;
+	box-sizing: border-box;
+	border:     1px solid #2CA02C;
+	flex:       auto;
+}
+
+#content {
+	box-sizing: border-box;
+	border:     1px solid #880000;
+	flex:       auto;
+}
+
+#side_task_list {
+	max-width:  350px;
+	width:      350px;
+	box-sizing: border-box;
+	border:     1px solid #F0AD4E;
+	flex:       auto;
 }
