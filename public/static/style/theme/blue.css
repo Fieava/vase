@@ -54,3 +54,31 @@
 	background:    radial-gradient(#1976D2, #0D47A1);
 	/*box-shadow:    0 0 2px #448AFF;*/
 }
+
+.nav_item > i {
+	color: #BBDEFB;
+}
+
+.nav_item:hover {
+	background: #2196F3;
+}
+
+.nav_item:hover > i {
+	color: #FFFFFF;
+}
+
+.nav_item_now {
+	background: #FFFFFF;
+}
+
+.nav_item_now > i {
+	color: #000000;
+}
+
+.nav_item_now:hover {
+	background: #FFFFFF;
+}
+
+.nav_item_now:hover > i {
+	color: #000000;
+}
