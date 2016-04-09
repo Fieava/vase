@@ -18,6 +18,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::group(['middleware' => ['access_control']], function () {
 		Route::get('/', ['name' => 'Index.index', 'uses' => 'IndexController@index']);
+
+		Route::get('/sub_nav/blank', ['name' => 'SubNav.blank', 'uses' => 'SubNavController@blank']);
+		Route::get('/sub_nav/load_error', ['name' => 'SubNav.load_error', 'uses' => 'SubNavController@load_error']);
+		Route::get('/sub_nav/forbidden', ['name' => 'SubNav.forbidden', 'uses' => 'SubNavController@forbidden']);
+		Route::get('/sub_nav/projects', ['name' => 'SubNav.project', 'uses' => 'SubNavController@project']);
+
+
 		Route::get('/test', ['name' => 'Test.test', 'uses' => 'IndexController@index']);
 	});
 

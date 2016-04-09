@@ -13,26 +13,44 @@
 <body>
 <script src="{{ asset('/static/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('/static/js/browser.js') }}"></script>
-<header id="main_bar">
-	<div id="avatar"><img src="https://avatars2.githubusercontent.com/u/7803638?v=3&s=40"/></div>
-	<span id="user_name" title="Fieava">Fieava</span>
-	<nav id="main_nav">
-		<div id="nav_project" class="nav_item_now nav_item"><i class="fa fa-archive fa-2x"></i></div>
-		<div id="nav_model" class="nav_item"><i class="fa fa-cogs fa-2x"></i></div>
-		<div id="nav_task" class="nav_item"><i class="fa fa-flag fa-2x"></i></div>
-		<div id="nav_setting" class="nav_item"><i class="fa fa-sliders fa-2x"></i></div>
-		<div id="nav_message" class="nav_item"><i class="fa fa-comments fa-2x"></i></div>
-		<div id="nav_help" class="nav_item nav_item_end"><i class="fa fa-question-circle fa-2x"></i></div>
+<section id="top_section">
+	<header id="main_bar">
+		<div id="avatar"><img src="{{ asset('storage/avatar/1/7803638.png') }}"/></div>
+		<span id="user_name" title="Fieava">Fieava</span>
+		<nav id="main_nav">
+			<div id="nav_project" class="nav_item"><i class="fa fa-archive fa-2x"></i></div>
+			<div id="nav_model" class="nav_item"><i class="fa fa-cogs fa-2x"></i></div>
+			<div id="nav_task" class="nav_item"><i class="fa fa-flag fa-2x"></i></div>
+			<div id="nav_setting" class="nav_item"><i class="fa fa-sliders fa-2x"></i></div>
+			<div id="nav_message" class="nav_item"><i class="fa fa-comments fa-2x"></i></div>
+			<div id="nav_help" class="nav_item nav_item_end"><i class="fa fa-question-circle fa-2x"></i></div>
+		</nav>
+	</header>
+	<nav id="sub_nav">
+
 	</nav>
-</header>
-<nav id="sub_nav">
-	s
-</nav>
-<section id="content">
-	@yield('content')
+	<section id="content">
+		@yield('content')
+	</section>
+	<aside id="side_task_list">
+		t
+	</aside>
 </section>
-<aside id="side_task_list">
-	t
-</aside>
+<footer>
+	f
+</footer>
+<script>
+	$(document).ready(function () {
+		$('#sub_nav').load('sub_nav/projects', function (response, status, xhr) {
+			if (status == "error") {
+				if (response == "Forbidden.") {
+					$('#sub_nav').load('sub_nav/forbidden');
+				} else {
+					$('#sub_nav').load('sub_nav/load_error');
+				}
+			}
+		});
+	});
+</script>
 </body>
 </html>

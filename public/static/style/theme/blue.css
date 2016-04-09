@@ -56,15 +56,18 @@
 }
 
 .nav_item > i {
-	color: #BBDEFB;
+	color:      #BBDEFB;
+	transition: 0.1s;
 }
 
 .nav_item:hover {
 	background: #2196F3;
+	transition: 0.1s;
 }
 
 .nav_item:hover > i {
-	color: #FFFFFF;
+	color:      #FFFFFF;
+	transition: 0.1s;
 }
 
 .nav_item_now {
@@ -81,4 +84,12 @@
 
 .nav_item_now:hover > i {
 	color: #000000;
+}
+
+#sub_nav_blank {
+	color: #E3F2FD;
+}
+
+#sub_nav_error {
+	color: #EEEEEE;
 }
