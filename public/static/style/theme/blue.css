@@ -55,6 +55,10 @@
 	/*box-shadow:    0 0 2px #448AFF;*/
 }
 
+#sub_nav {
+	box-shadow: -4px 0px 5px -5px #0D47A1;
+}
+
 .nav_item > i {
 	color:      #BBDEFB;
 	transition: 0.1s;
@@ -92,4 +96,60 @@
 
 #sub_nav_error {
 	color: #EEEEEE;
+}
+
+#sub_nav_project_list > li > i {
+	color:      #888888;
+	transition: 0.1s;
+}
+
+#sub_nav_project_list > li > span.project_version {
+	background-color: #BBDEFB;
+	color:            #555555;
+	transition:       0.1s;
+}
+
+#sub_nav_project_list > li:hover {
+	color:            #FFFFFF;
+	background-color: #64B5F6;
+	transition:       0.1s;
+}
+
+#sub_nav_project_list > li:hover > i {
+	color:      #E3F2FD;
+	transition: 0.1s;
+}
+
+#sub_nav_project_list > li:hover > span.project_version {
+	background-color: #E3F2FD;
+	color:            #64B5F6;
+	transition:       0.1s;
+}
+
+#sub_nav_project_list > li.project_now {
+	background-color: #42A5F5;
+	color:            #000000;
+}
+
+#sub_nav_project_list > li.project_now > i {
+	color: #333333;
+}
+
+#sub_nav_project_list > li.project_now > span.project_version {
+	background-color: #E3F2FD;
+	color:            #000000;
+}
+
+#sub_nav_project_list > li.project_now:hover {
+	color:            #000000;
+	background-color: #42A5F5;
+}
+
+#sub_nav_project_list > li.project_now:hover > i {
+	color: #333333;
+}
+
+#sub_nav_project_list > li.project_now:hover > span.project_version {
+	background-color: #E3F2FD;
+	color:            #000000;
 }

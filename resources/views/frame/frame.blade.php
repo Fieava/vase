@@ -18,7 +18,7 @@
 		<div id="avatar"><img src="{{ asset('storage/avatar/1/7803638.png') }}"/></div>
 		<span id="user_name" title="Fieava">Fieava</span>
 		<nav id="main_nav">
-			<div id="nav_project" class="nav_item"><i class="fa fa-archive fa-2x"></i></div>
+			<div id="nav_project" class="nav_item nav_item_now"><i class="fa fa-archive fa-2x"></i></div>
 			<div id="nav_model" class="nav_item"><i class="fa fa-cogs fa-2x"></i></div>
 			<div id="nav_task" class="nav_item"><i class="fa fa-flag fa-2x"></i></div>
 			<div id="nav_setting" class="nav_item"><i class="fa fa-sliders fa-2x"></i></div>
