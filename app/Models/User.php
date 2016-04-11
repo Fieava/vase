@@ -25,4 +25,12 @@ class User extends Authenticatable {
 	public function purview_executive() {
 		return $this->hasMany('App\Models\UserPurviewExecutive', 'uid');
 	}
+
+	public function project_team() {
+		return $this->hasMany('App\Models\ProjectTeam', 'uid');
+	}
+
+	public function projects() {
+		return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectTeam', 'project', 'id');
+	}
 }

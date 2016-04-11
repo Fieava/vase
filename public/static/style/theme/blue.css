@@ -90,7 +90,7 @@
 	color: #000000;
 }
 
-#sub_nav_blank {
+#sub_nav_info {
 	color: #E3F2FD;
 }
 
@@ -169,4 +169,8 @@ footer {
 
 #content_error {
 	color: #EEEEEE;
+}
+
+#content_info {
+	color: #E3F2FD;
 }

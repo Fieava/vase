@@ -125,18 +125,18 @@ footer {
 	flex-direction: column;
 }
 
-#sub_nav_blank, #sub_nav_error {
+#sub_nav_info, #sub_nav_error {
 	margin:     auto;
 	width:      180px;
 	height:     60px;
 	text-align: center;
 }
 
-#sub_nav_blank > *, #sub_nav_error > * {
+#sub_nav_info > *, #sub_nav_error > * {
 	display: block;
 }
 
-#sub_nav_blank > span, #sub_nav_error > span {
+#sub_nav_info > span, #sub_nav_error > span {
 	margin-top: 5px;
 }
 
@@ -164,17 +164,17 @@ footer {
 	flex-direction: column;
 }
 
-#content_error {
+#content_info, #content_error {
 	margin:     auto;
 	width:      180px;
 	height:     60px;
 	text-align: center;
 }
 
-#content_error > * {
+#content_info > *, #content_error > * {
 	display: block;
 }
 
-#content_error > span {
+#content_info > span, #content_error > span {
 	margin-top: 5px;
 }

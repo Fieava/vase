@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
 
 class SubNavController extends BaseController {
@@ -19,6 +20,7 @@ class SubNavController extends BaseController {
 	}
 
 	function project() {
-		return view('sub_nav.project');
+		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		return view('sub_nav.project')->with('projects', $projects);
 	}
 }

@@ -31,8 +31,6 @@
 	<section id="content"></section>
 	<aside id="side_task_list"></aside>
 </section>
-<footer>
-	f
-</footer>
+<footer></footer>
 </body>
 </html>
