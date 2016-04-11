@@ -30,6 +30,8 @@ Route::group(['middleware' => ['web']], function () {
 
 		Route::get('/content/welcome', ['name' => 'Content.welcome', 'uses' => 'ContentController@welcome']);
 
+		Route::get('/projects/info/{id}', ['name' => 'Project.info', 'uses' => 'ProjectController@info']);
+
 		Route::get('/test', ['name' => 'Test.test', 'uses' => 'IndexController@index']);
 	});
 

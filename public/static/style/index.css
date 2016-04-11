@@ -140,17 +140,17 @@ footer {
 	margin-top: 5px;
 }
 
-#sub_nav_project_list {
+#sub_nav_list {
 	margin:     0;
 	padding:    0;
 	list-style: none;
 }
 
-#sub_nav_project_list > li {
+#sub_nav_list > li {
 	padding: 10px 15px;
 }
 
-#sub_nav_project_list > li > span.project_version {
+#sub_nav_list > li > span.project_version {
 	float:         right;
 	padding:       0 5px;
 	margin-top:    0;
