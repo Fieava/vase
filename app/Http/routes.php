@@ -22,8 +22,13 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/sub_nav/blank', ['name' => 'SubNav.blank', 'uses' => 'SubNavController@blank']);
 		Route::get('/sub_nav/load_error', ['name' => 'SubNav.load_error', 'uses' => 'SubNavController@load_error']);
 		Route::get('/sub_nav/forbidden', ['name' => 'SubNav.forbidden', 'uses' => 'SubNavController@forbidden']);
+
 		Route::get('/sub_nav/projects', ['name' => 'SubNav.project', 'uses' => 'SubNavController@project']);
 
+		Route::get('/content/load_error', ['name' => 'Content.load_error', 'uses' => 'ContentController@load_error']);
+		Route::get('/content/forbidden', ['name' => 'Content.forbidden', 'uses' => 'ContentController@forbidden']);
+
+		Route::get('/content/welcome', ['name' => 'Content.welcome', 'uses' => 'ContentController@welcome']);
 
 		Route::get('/test', ['name' => 'Test.test', 'uses' => 'IndexController@index']);
 	});

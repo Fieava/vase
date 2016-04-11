@@ -56,7 +56,7 @@
 }
 
 #sub_nav {
-	box-shadow: -4px 0px 5px -5px #0D47A1;
+	box-shadow: 0 0 5px -2px #0D47A1;
 }
 
 .nav_item > i {
@@ -152,4 +152,21 @@
 #sub_nav_project_list > li.project_now:hover > span.project_version {
 	background-color: #E3F2FD;
 	color:            #000000;
+}
+
+footer {
+	background: #E0E0E0;
+	box-shadow: inset 0 5px 5px -5px #9E9E9E;
+}
+
+#side_task_list {
+	box-shadow: 0 0 5px -2px #0D47A1;
+}
+
+#content_container {
+	background: #FAFAFA;
+}
+
+#content_error {
+	color: #EEEEEE;
 }

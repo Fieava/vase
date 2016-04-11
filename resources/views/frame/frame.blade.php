@@ -27,15 +27,9 @@
 			<div id="nav_help" class="nav_item nav_item_end" onclick="load_sub_nav(this, 'sub_nav/help');"><i class="fa fa-question-circle fa-2x"></i></div>
 		</nav>
 	</header>
-	<nav id="sub_nav">
-
-	</nav>
-	<section id="content">
-		@yield('content')
-	</section>
-	<aside id="side_task_list">
-		t
-	</aside>
+	<nav id="sub_nav"></nav>
+	<section id="content"></section>
+	<aside id="side_task_list"></aside>
 </section>
 <footer>
 	f
