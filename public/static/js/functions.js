@@ -11,7 +11,9 @@ function load_sub_nav(element, url) {
 
 	sub_nav.load(url, function (response, status, xhr) {
 		if (status == "error") {
-			if (response == "Forbidden.") {
+			if (response == "Unauthorized.") {
+				sub_nav.html('<div id="sub_nav_container"><div id="sub_nav_error"><i class="fa fa-ban fa-5x"></i><span>Unauthorized</span></div></div>');
+			} else if (response == "Forbidden.") {
 				sub_nav.load('sub_nav/forbidden');
 			} else {
 				sub_nav.load('sub_nav/load_error');
@@ -33,7 +35,9 @@ function load_content(element, url) {
 
 	content.load(url, function (response, status, xhr) {
 		if (status == "error") {
-			if (response == "Forbidden.") {
+			if (response == "Unauthorized.") {
+				content.html('<div id="content_container"><div id="content_error"><i class="fa fa-ban fa-5x"></i><span>Unauthorized</span></div></div>');
+			} else if (response == "Forbidden.") {
 				content.load('content/forbidden');
 			} else {
 				content.load('content/load_error');

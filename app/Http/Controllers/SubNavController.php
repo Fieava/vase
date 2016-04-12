@@ -23,4 +23,10 @@ class SubNavController extends BaseController {
 		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
 		return view('sub_nav.project')->with('projects', $projects);
 	}
+
+	function model() {
+		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		$models = Auth::user()->models()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		return view('sub_nav.model')->with('model', $models);
+	}
 }
