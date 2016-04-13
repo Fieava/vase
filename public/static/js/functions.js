@@ -45,3 +45,7 @@ function load_content(element, url) {
 		}
 	});
 }
+
+function show_sub_nav_models(models_data) {
+	
+}
