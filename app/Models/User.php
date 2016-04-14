@@ -30,7 +30,7 @@ class User extends Authenticatable {
 		return $this->hasMany('App\Models\ProjectTeam', 'uid');
 	}
 
-	public function projects() {
-		return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectTeam', 'project', 'id');
-	}
+//	public function projects() {
+//		return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectTeam', 'uid', 'project');
+//	}
 }

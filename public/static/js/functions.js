@@ -47,21 +47,20 @@ function load_content(element, url) {
 }
 
 function show_sub_nav_models(models_data) {
-	generate_sub_nav_models_list_html(models_data, 0, false);
+	generate_sub_nav_models_list_html(models_data, 0, false, 0);
 }
 
-function generate_sub_nav_models_list_html(models_data, id, sub_item) {
-	console.log('ID/SUB: ' + id + '/' + sub_item);
+function generate_sub_nav_models_list_html(models_data, id, sub_item, level) {
+	//console.log('ID/SUB: ' + id + '/' + sub_item);
 	$(models_data).each(function (index, value) {
 		if (sub_item) {
 			var list_root = $('#model_sub_list_' + id);
 		} else {
 			var list_root = $("#sub_nav_list");
 		}
-		list_root.append('<li onclick="load_content(this, \'models/' + value.id + '/task\')"><i class="fa fa-archive"></i> ' + value.name + '</li><ul id="model_sub_list_' + value.id + '"></ul>');
-		console.log(value);
+		list_root.append('<li style="padding-left:' + (15 + level * 10) + 'px" onclick="load_content(this, \'models/' + value.id + '/task\')"><i class="fa fa-cogs"></i> ' + value.name + '</li><ul id="model_sub_list_' + value.id + '" class="sub_nav_list"></ul>');
 		if (typeof(value.sub_models) == 'object') {
-			generate_sub_nav_models_list_html(value.sub_models, value.id, true);
+			generate_sub_nav_models_list_html(value.sub_models, value.id, true, level + 1);
 		}
 	});
 }
