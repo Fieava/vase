@@ -47,5 +47,21 @@ function load_content(element, url) {
 }
 
 function show_sub_nav_models(models_data) {
-	
+	generate_sub_nav_models_list_html(models_data, 0, false);
+}
+
+function generate_sub_nav_models_list_html(models_data, id, sub_item) {
+	console.log('ID/SUB: ' + id + '/' + sub_item);
+	$(models_data).each(function (index, value) {
+		if (sub_item) {
+			var list_root = $('#model_sub_list_' + id);
+		} else {
+			var list_root = $("#sub_nav_list");
+		}
+		list_root.append('<li onclick="load_content(this, \'models/' + value.id + '/task\')"><i class="fa fa-archive"></i> ' + value.name + '</li><ul id="model_sub_list_' + value.id + '"></ul>');
+		console.log(value);
+		if (typeof(value.sub_models) == 'object') {
+			generate_sub_nav_models_list_html(value.sub_models, value.id, true);
+		}
+	});
 }
