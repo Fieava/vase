@@ -178,3 +178,23 @@ footer {
 #content_info > span, #content_error > span {
 	margin-top: 5px;
 }
+
+#sub_nav_top {
+	height:         32px;
+	flex-wrap:      nowrap;
+	display:        flex;
+	flex-direction: row;
+}
+
+.sub_nav_top_btn {
+	display: flex;
+	flex:    auto;
+}
+
+.sub_nav_top_btn > i {
+	width:       18px;
+	height:      18px;
+	line-height: 16px;
+	margin:      auto;
+	text-align:  center;
+}

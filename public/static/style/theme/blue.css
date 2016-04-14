@@ -174,3 +174,16 @@ footer {
 #content_info {
 	color: #E3F2FD;
 }
+
+#sub_nav_top {
+	background: #BBDEFB;
+}
+
+.sub_nav_top_btn {
+	border: 1px solid transparent;
+}
+
+.sub_nav_top_btn:hover {
+	background: #E3F2FD;
+	border:     1px solid #BBDEFB;
+}

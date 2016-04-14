@@ -27,6 +27,11 @@ class SubNavController extends BaseController {
 
 	function model() {
 		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		return view('sub_nav.model')->with('projects', $projects);
+	}
+
+	function task() {
+		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
 		foreach ($projects as $project) {
 			$project_list[] = $project->id;
 		}
@@ -37,7 +42,7 @@ class SubNavController extends BaseController {
 			$models = [];
 		}
 
-		return view('sub_nav.model')->with('models', json_encode($models));
+		return view('sub_nav.task')->with('models', json_encode($models));
 	}
 
 	function get_sub_models($models) {
