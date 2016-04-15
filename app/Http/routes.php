@@ -26,6 +26,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/sub_nav/projects', ['name' => 'SubNav.project', 'uses' => 'SubNavController@project']);
 		Route::get('/sub_nav/models', ['name' => 'SubNav.model', 'uses' => 'SubNavController@model']);
 		Route::get('/sub_nav/tasks', ['name' => 'SubNav.task', 'uses' => 'SubNavController@task']);
+		Route::get('/sub_nav/tasks/{id}', ['name' => 'SubNav.task_by_project', 'uses' => 'SubNavController@taskByProject']);
 
 		Route::get('/content/load_error', ['name' => 'Content.load_error', 'uses' => 'ContentController@load_error']);
 		Route::get('/content/forbidden', ['name' => 'Content.forbidden', 'uses' => 'ContentController@forbidden']);

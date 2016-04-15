@@ -33,4 +33,13 @@ class User extends Authenticatable {
 //	public function projects() {
 //		return $this->hasManyThrough('App\Models\Project', 'App\Models\ProjectTeam', 'uid', 'project');
 //	}
+
+	public function projects() {
+		$projects_items = $this->project_team()->get(['project']);
+		$project_ids    = [];
+		foreach ($projects_items as $project_item) {
+			$project_ids[] = $project_item->project;
+		}
+		return Project::whereIn('id', $project_ids);
+	}
 }

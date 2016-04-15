@@ -140,13 +140,13 @@ footer {
 	margin-top: 5px;
 }
 
-#sub_nav_list {
+#sub_nav_list, .sub_nav_list {
 	margin:     0;
 	padding:    0;
 	list-style: none;
 }
 
-#sub_nav_list > li {
+#sub_nav_list > li, .sub_nav_list > li {
 	padding: 10px 15px;
 }
 
@@ -199,13 +199,25 @@ footer {
 	text-align:  center;
 }
 
-.sub_nav_list {
-	/*display:    none;*/
-	list-style: none;
+#sub_nav_selector_list {
 	margin:     0;
 	padding:    0;
+	list-style: none;
+	height:     37px;
+	overflow:   hidden;
+	transition: all 0.1s;
 }
 
-.sub_nav_list > li {
-	padding: 10px 15px;
+#sub_nav_selector_list > li {
+	padding:    10px 15px;
+	text-align: right;
+}
+
+#sub_nav_selector_list > li > span {
+	float: left;
+}
+
+#sub_nav_selector_list:hover {
+	height:     100%;
+	transition: all 0.1s;
 }

@@ -187,3 +187,11 @@ footer {
 	background: #E3F2FD;
 	border:     1px solid #BBDEFB;
 }
+
+#sub_nav_selector_list {
+	background: #E0E0E0;
+}
+
+#sub_nav_selector_list > li:hover {
+	background: #EEEEEE;
+}

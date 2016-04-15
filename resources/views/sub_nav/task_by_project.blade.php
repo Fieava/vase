@@ -1,9 +1,12 @@
 <div id="sub_nav_container">
 	<div id="sub_nav_selector">
 		<ul id="sub_nav_selector_list">
-			<li><span>Project:</span>All</li>
+			<li><span>Project:</span>{{ $current_project['development_name'] }}</li>
+			<li onclick="load_sub_nav(null,'sub_nav/tasks')">All</li>
 			@foreach($projects as $project)
-				<li onclick="load_sub_nav(null,'sub_nav/tasks/{{ $project['id'] }}')">{{ $project['development_name'] }}</li>
+				@if($project['id']!=$current_project['id'])
+					<li onclick="load_sub_nav(null,'sub_nav/tasks/{{ $project['id'] }}')">{{ $project['development_name'] }}</li>
+				@endif
 			@endforeach
 		</ul>
 	</div>

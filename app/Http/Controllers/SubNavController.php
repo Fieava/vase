@@ -6,6 +6,7 @@ use App\Models\Models;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Route;
 
 class SubNavController extends BaseController {
 
@@ -22,11 +23,7 @@ class SubNavController extends BaseController {
 	}
 
 	function project() {
-		$projects_items = Auth::user()->project_team()->get(['project']);
-		foreach ($projects_items as $project_item) {
-			$project_ids[] = $project_item->project;
-		}
-		$projects = Project::whereIn('id', $project_ids)->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
 		return view('sub_nav.project')->with('projects', $projects);
 	}
 
@@ -36,22 +33,28 @@ class SubNavController extends BaseController {
 	}
 
 	function task() {
-		$projects_items = Auth::user()->project_team()->get(['project']);
-		foreach ($projects_items as $project_item) {
-			$project_ids[] = $project_item->project;
-		}
-		$projects = Project::whereIn('id', $project_ids)->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		$projects     = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		$project_list = [];
 		foreach ($projects as $project) {
 			$project_list[] = $project->id;
 		}
-		if (is_array($project_list)) {
-			$models = Models::whereIn('project', $project_list)->where('status', '!=', 0)->Where('status', '!=', 5)->Where('parent', NULL)->get()->toArray();
-			$models = $this::get_sub_models($models);
-		} else {
-			$models = [];
+		$models = Models::whereIn('project', $project_list)->where('status', '!=', 0)->Where('status', '!=', 5)->Where('parent', NULL)->get()->toArray();
+		$models = $this::get_sub_models($models);
+
+		return view('sub_nav.task')->with('models', json_encode($models))->with('projects', $projects);
+	}
+
+	function taskByProject() {
+		$projects = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->get();
+		$project  = Auth::user()->projects()->where('status', '!=', 0)->Where('status', '!=', 5)->where('id', Route::input('id'))->first()->toArray();
+		if (!$project) {
+			return response('Forbidden.', 403);
 		}
 
-		return view('sub_nav.task')->with('models', json_encode($models));
+		$models = Models::where('project', Route::input('id'))->where('status', '!=', 0)->Where('status', '!=', 5)->Where('parent', NULL)->get()->toArray();
+		$models = $this::get_sub_models($models);
+
+		return view('sub_nav.task_by_project')->with('models', json_encode($models))->with('projects', $projects)->with('current_project', $project);
 	}
 
 	function get_sub_models($models) {
