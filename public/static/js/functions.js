@@ -42,6 +42,8 @@ function load_content(element, url) {
 			} else {
 				content.load('content/load_error');
 			}
+		} else {
+			$('#content_container').height($(window).height() - $('footer').outerHeight());
 		}
 	});
 }

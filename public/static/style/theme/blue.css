@@ -195,3 +195,28 @@ footer {
 #sub_nav_selector_list > li:hover {
 	background: #EEEEEE;
 }
+
+#container_top {
+	background: #BBDEFB;
+}
+
+.container_top_btn {
+	border: 1px solid transparent;
+}
+
+.container_top_btn:hover {
+	background: #E3F2FD;
+	border:     1px solid #BBDEFB;
+}
+
+.line_C_label {
+	color: #000000;
+}
+
+.line_C_content_text {
+	color: #666666;
+}
+
+.content_section {
+	border-bottom: 1px solid #BBDEFB;
+}
