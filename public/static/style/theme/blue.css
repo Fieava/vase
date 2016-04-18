@@ -220,3 +220,7 @@ footer {
 .content_section {
 	border-bottom: 1px solid #BBDEFB;
 }
+
+.line_input {
+	border: 1px solid #BBDEFB;
+}

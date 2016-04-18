@@ -8,6 +8,7 @@
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">Name</div>
 			<div class="line_H line_content line_C_content_text line_editable">{{ $project['name'] }}</div>
+			<div class="line_H line_content line_C_content_input line_editable"><input class="line_input" type="input"/></div>
 		</div>
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">Development Name</div>

@@ -288,7 +288,7 @@ footer {
 }
 
 .line_content {
-	margin-left: 3px;
+	margin-left: 10px;
 }
 
 .line_label:after {
@@ -306,4 +306,14 @@ footer {
 	margin-bottom: 15px;
 	padding:       0 0 5px 5px;
 	color:         #1E88E5;
+}
+
+.line_input {
+	font-size:   12px;
+	font-family: "微软雅黑", "华文细黑", serif;
+	padding:     5px;
+}
+
+.line_C_content_input {
+	margin-left: 4px;
 }
