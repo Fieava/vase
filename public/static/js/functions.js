@@ -70,18 +70,29 @@ function generate_sub_nav_models_list_html(models_data, id, sub_item, level, ico
 }
 
 function show_input_box() {
-	$('.line_C_content_text').hide();
-	$('.line_C_content_input').css('display', 'inline-block');
+	$('.line_content').hide();
+	$('.line_input').css('display', 'inline-block');
 	$('#content_top_cancel_edit').show();
 	$('#content_top_submit').show();
 	$('#content_top_edit').hide();
 }
 
 function hide_input_box(element) {
-	$('.line_C_content_input').hide();
-	$('.line_C_content_text').css('display', 'inline-block');
+	$('.line_input').hide();
+	$('.line_content').css('display', 'inline-block');
 	$('#content_top_edit').show();
 	$('#content_top_submit').hide();
 	$('#content_top_cancel_edit').hide();
 }
 
+function init_input_box(page) {
+	switch (page) {
+		case 'content.project':
+			$('#status').selectmenu({
+				width: 180
+			});
+			break;
+		default:
+	}
+	$('.line_input').hide();
+}

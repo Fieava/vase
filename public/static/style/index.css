@@ -291,6 +291,10 @@ footer {
 	margin-left: 10px;
 }
 
+.line_label {
+	line-height: 12px;
+}
+
 .line_label:after {
 	content: ': ';
 }
@@ -316,7 +320,7 @@ footer {
 
 .line_input {
 	margin-left: 4px;
-	display:     none;
+	box-sizing:  border-box;
 }
 
 .line_I_W180 {
@@ -334,10 +338,4 @@ footer {
 .line_I_textarea {
 	min-height: 18px;
 	height:     36px;
-}
-
-.line_S_W180 {
-	width:     191px;
-	max-width: 191px;
-	min-width: 191px;
 }

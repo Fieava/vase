@@ -4,19 +4,17 @@
 	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 	<meta name="language" content="zh-CN">
-	<meta name="description" content="@yield('description')" />
-	<meta name="keywords" content="@yield('keywords')" />
+	<meta name="description" content="@yield('description')"/>
+	<meta name="keywords" content="@yield('keywords')"/>
 	<link href="{{ asset('/static/style/index.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('/static/style/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('/static/style/jquery-ui.structure.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ $WebData['theme_file_path'] }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<script src="{{ asset('/static/js/jquery-2.1.4.min.js') }}"></script>
-<script src="{{ asset('/static/js/browser.js') }}"></script>
-<script src="{{ asset('/static/js/functions.js') }}"></script>
 <section id="top_section">
 	<header id="main_bar">
-		<div id="avatar"><img src="{{ asset('storage/avatar/1/7803638.png') }}" /></div>
+		<div id="avatar"><img src="{{ asset('storage/avatar/1/7803638.png') }}"/></div>
 		<span id="user_name" title="Fieava">Fieava</span>
 		<nav id="main_nav">
 			<div id="nav_project" class="nav_item" onclick="load_sub_nav(this, 'sub_nav/projects');"><i class="fa fa-archive fa-2x"></i></div>
@@ -32,5 +30,9 @@
 	<aside id="side_task_list"></aside>
 </section>
 <footer></footer>
+<script src="{{ asset('/static/js/jquery-2.1.4.min.js') }}"></script>
+<script src="{{ asset('/static/js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('/static/js/browser.js') }}"></script>
+<script src="{{ asset('/static/js/functions.js') }}"></script>
 </body>
 </html>
