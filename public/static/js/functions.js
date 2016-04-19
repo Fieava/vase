@@ -68,3 +68,20 @@ function generate_sub_nav_models_list_html(models_data, id, sub_item, level, ico
 		}
 	});
 }
+
+function show_input_box() {
+	$('.line_C_content_text').hide();
+	$('.line_C_content_input').css('display', 'inline-block');
+	$('#content_top_cancel_edit').show();
+	$('#content_top_submit').show();
+	$('#content_top_edit').hide();
+}
+
+function hide_input_box(element) {
+	$('.line_C_content_input').hide();
+	$('.line_C_content_text').css('display', 'inline-block');
+	$('#content_top_edit').show();
+	$('#content_top_submit').hide();
+	$('#content_top_cancel_edit').hide();
+}
+

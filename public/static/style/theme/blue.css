@@ -219,8 +219,13 @@ footer {
 
 .content_section {
 	border-bottom: 1px solid #BBDEFB;
+	color:         #1E88E5;
 }
 
-.line_input {
+.line_input_control {
 	border: 1px solid #BBDEFB;
+}
+
+.line_S_background {
+	background: #FFFFFF;
 }
