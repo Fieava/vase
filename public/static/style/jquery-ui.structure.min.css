@@ -544,7 +544,7 @@ button.ui-button::-moz-focus-inner {
 	position:         relative;
 	margin:           0;
 	padding:          3px 1em 3px .4em;
-	cursor:           pointer;
+	/*cursor:           pointer;*/
 	min-height:       0; /* support: IE7 */
 	/* support: IE10, see #8844 */
 	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
@@ -736,7 +736,6 @@ button.ui-button::-moz-focus-inner {
 	overflow:        hidden;
 	position:        relative;
 	text-decoration: none;
-	cursor:          pointer;
 }
 
 .ui-selectmenu-button span.ui-icon {

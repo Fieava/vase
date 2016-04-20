@@ -89,7 +89,7 @@ function init_input_box(page) {
 	switch (page) {
 		case 'content.project':
 			$('#status').selectmenu({
-				width: 180
+				width: 190
 			});
 			break;
 		default:

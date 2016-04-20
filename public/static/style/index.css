@@ -289,14 +289,17 @@ footer {
 
 .line_content {
 	margin-left: 10px;
+	margin-top:  4px;
 }
 
 .line_label {
-	line-height: 12px;
+	line-height:    18px;
+	vertical-align: top;
+	margin-top:     4px;
 }
 
 .line_label:after {
-	content: ': ';
+	content: ' : ';
 }
 
 .content_line_separator {
