@@ -55,14 +55,20 @@
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">Start At</div>
 			<div class="line_H line_content line_C_content_text line_editable">{{ $project['start_at'] }}</div>
+			<div class="line_H line_input line_C_content_input line_editable"><input id="start_at" name="start_at" class="line_input_control line_I_W180" type="text"
+			                                                                         value="{{ $project['start_at'] }}"/></div>
 		</div>
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">End At</div>
 			<div class="line_H line_content line_C_content_text line_editable">{{ $project['end_at'] }}</div>
+			<div class="line_H line_input line_C_content_input line_editable"><input id="end_at" name="end_at" class="line_input_control line_I_W180" type="text"
+			                                                                         value="{{ $project['end_at'] }}"/></div>
 		</div>
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">Version</div>
 			<div class="line_H line_content line_C_content_text line_editable">{{ $project['version'] }}</div>
+			<div class="line_H line_input line_C_content_input line_editable"><input id="version" name="version" class="line_input_control line_I_W180" type="text"
+			                                                                         value="{{ $project['version'] }}"/></div>
 		</div>
 		<div class="content_line">
 			<div class="line_H line_W150 line_TAR line_label line_C_label">project time can be exceed</div>
@@ -72,6 +78,12 @@
 				@elseif($project['project_time_can_be_exceed']==1)
 					Yes
 				@endif
+			</div>
+			<div class="line_H line_input line_C_content_input">
+				<select id="project_time_can_be_exceed" name="project_time_can_be_exceed" class="line_input_control">
+					<option value="0" @if($project['project_time_can_be_exceed']==0) selected="selected" @endif>No</option>
+					<option value="1" @if($project['project_time_can_be_exceed']==1) selected="selected" @endif>Yes</option>
+				</select>
 			</div>
 		</div>
 		<div class="content_line_separator"></div>

@@ -88,9 +88,11 @@ function hide_input_box(element) {
 function init_input_box(page) {
 	switch (page) {
 		case 'content.project':
-			$('#status').selectmenu({
-				width: 190
-			});
+			$('#status').selectmenu({width: 192});
+			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd'});
+			$('#end_at').datetimepicker({dateFormat: 'yy-mm-dd'});
+			$('#version').mask("9.9");
+			$('#project_time_can_be_exceed').selectmenu({width: 192});
 			break;
 		default:
 	}

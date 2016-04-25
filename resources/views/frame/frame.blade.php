@@ -32,6 +32,8 @@
 <footer></footer>
 <script src="{{ asset('/static/js/jquery-2.1.4.min.js') }}"></script>
 <script src="{{ asset('/static/js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('/static/js/jquery-ui-timepicker-addon.js') }}"></script>
+<script src="{{ asset('/static/js/jquery.maskedinput.js') }}"></script>
 <script src="{{ asset('/static/js/browser.js') }}"></script>
 <script src="{{ asset('/static/js/functions.js') }}"></script>
 </body>
