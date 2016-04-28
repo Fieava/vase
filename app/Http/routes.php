@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/welcome', ['name' => 'Content.welcome', 'uses' => 'ContentController@welcome']);
 
 		Route::get('/projects/info/{id}', ['name' => 'Project.info', 'uses' => 'ProjectController@info']);
+		Route::get('/projects/edit/{id}', ['name' => 'Project.edit', 'uses' => 'ProjectController@edit']);
 		Route::get('/projects/{id}/models', ['name' => 'Project.model', 'uses' => 'ProjectController@model']);
 
 		Route::get('/models/{id}/task', ['name' => 'Task.list_by_model', 'uses' => 'TaskController@listByModel']);

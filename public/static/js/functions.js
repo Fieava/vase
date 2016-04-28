@@ -85,14 +85,26 @@ function hide_input_box(element) {
 	$('#content_top_cancel_edit').hide();
 }
 
+function submit_input() {
+	$('form').submit();
+}
+
 function init_input_box(page) {
 	switch (page) {
 		case 'content.project':
+			// set JQuery UI controls
 			$('#status').selectmenu({width: 192});
 			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd'});
 			$('#end_at').datetimepicker({dateFormat: 'yy-mm-dd'});
 			$('#version').mask("9.9");
 			$('#project_time_can_be_exceed').selectmenu({width: 192});
+			// set form validation
+			$('#content_project').validate({
+				rules: {
+					name: "required",
+
+				}
+			});
 			break;
 		default:
 	}
