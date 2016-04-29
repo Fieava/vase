@@ -35,7 +35,9 @@
 <script src="{{ asset('/static/js/jquery-ui-timepicker-addon.js') }}"></script>
 <script src="{{ asset('/static/js/jquery.maskedinput.js') }}"></script>
 <script src="{{ asset('/static/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('/static/js/additional-methods.min.js') }}"></script>
 <script src="{{ asset('/static/js/functions.js') }}"></script>
 <script src="{{ asset('/static/js/browser.js') }}"></script>
+<div id="content_edit_error" title="Notice" class="jui_dialog"></div>
 </body>
 </html>

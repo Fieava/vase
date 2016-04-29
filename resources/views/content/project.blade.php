@@ -7,6 +7,7 @@
 	</div>
 	<div id="container_content">
 		<div class="content_section">Project info</div>
+		<div class="content_validate_info"></div>
 		<form id="content_project">
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label"><label for="name">Name</label></div>

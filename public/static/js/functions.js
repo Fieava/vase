@@ -80,6 +80,7 @@ function show_input_box() {
 function hide_input_box(element) {
 	$('.line_input').hide();
 	$('.line_content').css('display', 'inline-block');
+	$('.content_validate_info').hide();
 	$('#content_top_edit').show();
 	$('#content_top_submit').hide();
 	$('#content_top_cancel_edit').hide();
@@ -94,19 +95,29 @@ function init_input_box(page) {
 		case 'content.project':
 			// set JQuery UI controls
 			$('#status').selectmenu({width: 192});
-			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd'});
-			$('#end_at').datetimepicker({dateFormat: 'yy-mm-dd'});
+			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "HH:mm:ss"});
+			$('#end_at').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "HH:mm:ss"});
 			$('#version').mask("9.9");
 			$('#project_time_can_be_exceed').selectmenu({width: 192});
 			// set form validation
 			$('#content_project').validate({
 				rules: {
 					name: "required",
-
-				}
+					start_at: "datetime",
+					end_at: "datetime"
+				},
+				messages: {
+					name: {required: "Project <strong>Name</strong> cannot be null"},
+					start_at: {datetime: "<strong>Start At</strong> can only be a date with a time"},
+					end_at: {datetime: "<strong>End At</strong> can only be a date with a time"}
+				},
+				errorContainer: ".content_validate_info",
+				errorLabelContainer: ".content_validate_info",
+				wrapper: "li"
 			});
 			break;
 		default:
 	}
 	$('.line_input').hide();
+	$('.content_validate_info').hide();
 }

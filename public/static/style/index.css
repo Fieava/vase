@@ -342,3 +342,18 @@ footer {
 	min-height: 18px;
 	height:     36px;
 }
+
+.jui_dialog {
+	display: none;
+}
+
+.content_validate_info {
+	line-height:   23px;
+	padding:       5px;
+	margin-bottom: 5px;
+	display:       none;
+}
+
+.content_validate_info > li {
+	list-style: none;
+}

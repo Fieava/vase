@@ -231,6 +231,12 @@ footer {
 	border: 1px solid #64B5F6;
 }
 
+.content_validate_info {
+	border:     1px solid #BBDEFB;
+	background: #E3F2FD;
+	color:      #0D47A1;
+}
+
 /* JUI */
 
 .ui-widget {
