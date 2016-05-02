@@ -8,18 +8,18 @@
 	<div id="container_content">
 		<div class="content_section">Project info</div>
 		<div class="content_validate_info"></div>
-		<form id="content_project">
+		<form id="content_project" action="projects/edit/{{ $project['id'] }}">
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label"><label for="name">Name</label></div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['name'] }}</div>
-				<div class="line_H line_input line_C_content_input line_editable"><input id="name" name="name" class="line_input_control line_I_W180" type="text" value="{{ $project['name'] }}" />
+				<div class="line_H line_input line_C_content_input line_editable"><input id="name" name="name" class="line_input_control line_I_W180" type="text" value="{{ $project['name'] }}"/>
 				</div>
 			</div>
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label"><label for="development_name">Development Name</label></div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['development_name'] }}</div>
 				<div class="line_H line_input line_C_content_input line_editable"><input id="development_name" name="development_name" class="line_input_control line_I_W180" type="text"
-				                                                                         value="{{ $project['development_name'] }}" /></div>
+				                                                                         value="{{ $project['development_name'] }}"/></div>
 			</div>
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label"><label for="description">Description</label></div>
@@ -59,19 +59,19 @@
 				<div class="line_H line_W150 line_TAR line_label line_C_label">Start At</div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['start_at'] }}</div>
 				<div class="line_H line_input line_C_content_input line_editable"><input id="start_at" name="start_at" class="line_input_control line_I_W180" type="text"
-				                                                                         value="{{ $project['start_at'] }}" /></div>
+				                                                                         value="{{ $project['start_at'] }}"/></div>
 			</div>
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label">End At</div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['end_at'] }}</div>
 				<div class="line_H line_input line_C_content_input line_editable"><input id="end_at" name="end_at" class="line_input_control line_I_W180" type="text"
-				                                                                         value="{{ $project['end_at'] }}" /></div>
+				                                                                         value="{{ $project['end_at'] }}"/></div>
 			</div>
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label">Version</div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['version'] }}</div>
 				<div class="line_H line_input line_C_content_input line_editable"><input id="version" name="version" class="line_input_control line_I_W180" type="text"
-				                                                                         value="{{ $project['version'] }}" /></div>
+				                                                                         value="{{ $project['version'] }}"/></div>
 			</div>
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label">project time can be exceed</div>
@@ -90,6 +90,7 @@
 				</div>
 			</div>
 			<div class="content_line_separator"></div>
+			<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 		</form>
 		<div class="content_section">Project statistic</div>
 	</div>

@@ -113,7 +113,13 @@ function init_input_box(page) {
 				},
 				errorContainer: ".content_validate_info",
 				errorLabelContainer: ".content_validate_info",
-				wrapper: "li"
+				wrapper: "li",
+				submitHandler: function (form) {
+					post_url = $('#content_project').attr('action');
+					$.post(post_url, $(form).serialize(), function (data) {
+
+					});
+				}
 			});
 			break;
 		default:
