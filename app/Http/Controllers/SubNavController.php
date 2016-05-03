@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Models;
-use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Route;
 
-class SubNavController extends BaseController {
+class SubNavController extends Controller {
 
 	function blank() {
 		return view('sub_nav.blank');

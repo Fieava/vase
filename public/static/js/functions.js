@@ -9,7 +9,7 @@ function load_sub_nav(element, url) {
 		$(element).addClass('nav_item_now');
 	}
 
-	sub_nav.load(url, function (response, status, xhr) {
+	sub_nav.load(url, function (response, status) {
 		if (status == "error") {
 			if (response == "Unauthorized.") {
 				sub_nav.html('<div id="sub_nav_container"><div id="sub_nav_error"><i class="fa fa-ban fa-5x"></i><span>Unauthorized</span></div></div>');
@@ -33,7 +33,7 @@ function load_content(element, url) {
 		$(element).addClass('list_now');
 	}
 
-	content.load(url, function (response, status, xhr) {
+	content.load(url, function (response, status) {
 		if (status == "error") {
 			if (response == "Unauthorized.") {
 				content.html('<div id="content_container"><div id="content_error"><i class="fa fa-ban fa-5x"></i><span>Unauthorized</span></div></div>');
@@ -77,7 +77,7 @@ function show_input_box() {
 	$('#content_top_edit').hide();
 }
 
-function hide_input_box(element) {
+function hide_input_box() {
 	$('.line_input').hide();
 	$('.line_content').css('display', 'inline-block');
 	$('.content_validate_info').hide();
@@ -116,8 +116,10 @@ function init_input_box(page) {
 				wrapper: "li",
 				submitHandler: function (form) {
 					post_url = $('#content_project').attr('action');
-					$.post(post_url, $(form).serialize(), function (data) {
-
+					$.post(post_url, $(form).serialize(), function (data, status) {
+//						alert(status);
+					}).fail(function (data) {
+						deal_ajax_post_error(data);
 					});
 				}
 			});
@@ -126,4 +128,25 @@ function init_input_box(page) {
 	}
 	$('.line_input').hide();
 	$('.content_validate_info').hide();
+}
+
+function deal_ajax_post_error(data) {
+	var response  = JSON.parse(data.responseText);
+	var dialog_ul = '<ul class="error_dialog_ul">';
+	$.each(response, function (index, value) {
+		dialog_ul += '<li>' + value + '</li>';
+	});
+	dialog_ul += '</ul>';
+
+	$('#ajax_error_dialog_box').html(dialog_ul).dialog({
+		appendTo: '#content_container',
+		resizable: false,
+		modal: true,
+		buttons: {
+			"Ok": function () {
+				$(this).dialog("close");
+			}
+		}
+	});
+
 }

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
-
-class ContentController extends BaseController {
+class ContentController extends Controller {
 
 	function welcome1() {
 		return view('sub_nav.blank');
