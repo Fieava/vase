@@ -96,6 +96,7 @@ footer {
 	width:      350px;
 	box-sizing: border-box;
 	flex:       auto;
+	position:   relative;
 }
 
 .nav_item {
@@ -165,6 +166,7 @@ footer {
 	display:        flex;
 	flex-direction: column;
 	overflow-y:     scroll;
+	position:       relative;
 }
 
 #content_info, #content_error {
