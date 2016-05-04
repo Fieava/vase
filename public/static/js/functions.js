@@ -103,6 +103,7 @@ function init_input_box(page) {
 			$('#content_project').validate({
 				rules: {
 					name: "required",
+					development_name: "required",
 					start_at: "datetime",
 					end_at: "datetime"
 				},
@@ -119,7 +120,11 @@ function init_input_box(page) {
 					$.post(post_url, $(form).serialize(), function (data, status) {
 //						alert(status);
 					}).fail(function (data) {
-						deal_ajax_post_error(data);
+						try {
+							deal_ajax_post_error_response(data);
+						} catch (e) {
+							deal_ajax_error(e.message);
+						}
 					});
 				}
 			});
@@ -130,7 +135,7 @@ function init_input_box(page) {
 	$('.content_validate_info').hide();
 }
 
-function deal_ajax_post_error(data) {
+function deal_ajax_post_error_response(data) {
 	var response  = JSON.parse(data.responseText);
 	var dialog_ul = '<ul class="error_dialog_ul">';
 	$.each(response, function (index, value) {
@@ -138,7 +143,7 @@ function deal_ajax_post_error(data) {
 	});
 	dialog_ul += '</ul>';
 
-	$('#ajax_error_dialog_box').html(dialog_ul).dialog({
+	$('#ajax_error_response_dialog_box').html(dialog_ul).dialog({
 		appendTo: '#content_container',
 		resizable: false,
 		modal: true,
@@ -149,4 +154,17 @@ function deal_ajax_post_error(data) {
 		}
 	});
 
+}
+
+function deal_ajax_error(msg) {
+	$('#ajax_error_dialog_box').html(msg + '<br/><br/><strong>Please contact a technician, report the message shown above and the action you trying to do.</strong>').dialog({
+		appendTo: '#content_container',
+		resizable: false,
+		modal: true,
+		buttons: {
+			"Ok": function () {
+				$(this).dialog("close");
+			}
+		}
+	});
 }

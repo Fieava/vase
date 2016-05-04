@@ -357,3 +357,13 @@ footer {
 .content_validate_info > li {
 	list-style: none;
 }
+
+.error_dialog_ul {
+	margin:  0;
+	padding: 0;
+}
+
+.error_dialog_ul > li {
+	list-style: square;
+	margin:     0 8px;
+}

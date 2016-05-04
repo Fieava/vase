@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
@@ -19,11 +20,23 @@ class ProjectController extends Controller {
 	}
 
 	function edit(Request $request) {
-		//validate
+		// validate
 		$this->validate($request, [
-			'title' => 'required|max:255',
-			'body'  => 'required',
+			'name'             => 'required|max:255',
+			'development_name' => 'required',
+			'start_at'         => 'date_format:Y-m-d H:i:s',
+			'end_at'           => 'date_format:Y-m-d H:i:s',
 		]);
-		return response(Input::all(), 200);
+		// edit
+		$project = Project::find(Route::input('id'));
+		foreach (Input::except('_token') as $key => $value) {
+			if (empty($value) && in_array($key, ['start_at', 'end_at'])) {
+				$project->$key = NULL;
+			} else {
+				$project->$key = $value;
+			}
+		}
+		$project->save();
+		return response('');
 	}
 }

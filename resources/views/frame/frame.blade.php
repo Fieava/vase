@@ -38,6 +38,7 @@
 <script src="{{ asset('/static/js/additional-methods.min.js') }}"></script>
 <script src="{{ asset('/static/js/functions.js') }}"></script>
 <script src="{{ asset('/static/js/browser.js') }}"></script>
-<div id="ajax_error_dialog_box" title="Notice" class="jui_dialog"></div>
+<div id="ajax_error_response_dialog_box" title="Notice" class="jui_dialog"></div>
+<div id="ajax_error_dialog_box" title="Error" class="jui_dialog"></div>
 </body>
 </html>
