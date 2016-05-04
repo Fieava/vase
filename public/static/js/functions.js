@@ -117,8 +117,8 @@ function init_input_box(page) {
 				wrapper: "li",
 				submitHandler: function (form) {
 					post_url = $('#content_project').attr('action');
-					$.post(post_url, $(form).serialize(), function (data, status) {
-//						alert(status);
+					$.post(post_url, $(form).serialize(), function (data) {
+						deal_ajax_post_success_response(data);
 					}).fail(function (data) {
 						try {
 							deal_ajax_post_error_response(data);
@@ -167,4 +167,8 @@ function deal_ajax_error(msg) {
 			}
 		}
 	});
+}
+
+function deal_ajax_post_success_response(data) {
+	
 }

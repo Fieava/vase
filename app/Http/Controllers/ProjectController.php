@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller {
 
@@ -37,6 +36,6 @@ class ProjectController extends Controller {
 			}
 		}
 		$project->save();
-		return response('');
+		return response()->json(['code' => '0', 'msg' => 'OK']);
 	}
 }
