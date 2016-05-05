@@ -109,6 +109,7 @@ function init_input_box(page) {
 				},
 				messages: {
 					name: {required: "Project <strong>Name</strong> cannot be null"},
+					development_name: {required: "Project <strong>Development Name</strong> cannot be null"},
 					start_at: {datetime: "<strong>Start At</strong> can only be a date with a time"},
 					end_at: {datetime: "<strong>End At</strong> can only be a date with a time"}
 				},
@@ -170,5 +171,27 @@ function deal_ajax_error(msg) {
 }
 
 function deal_ajax_post_success_response(data) {
-	
+	if (data.code == 0) {
+		switch (data.action) {
+			case 'load_content':
+				deal_ajax_response_load_content(data.container, data.url);
+				break;
+			default :
+				deal_ajax_error('Wrong response data');
+				break;
+		}
+	} else {
+
+	}
+}
+
+function deal_ajax_response_load_content(container, url) {
+	switch (container) {
+		case 'content':
+			load_content(null, url);
+			break;
+		default :
+			deal_ajax_error('Wrong response data');
+			break;
+	}
 }

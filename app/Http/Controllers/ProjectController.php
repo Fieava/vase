@@ -36,6 +36,6 @@ class ProjectController extends Controller {
 			}
 		}
 		$project->save();
-		return response()->json(['code' => '0', 'msg' => 'OK']);
+		return response()->json(['code' => '0', 'msg' => 'OK', 'action' => 'load_content', 'container' => 'content', 'url' => 'projects/info/' . Route::input('id')]);
 	}
 }
