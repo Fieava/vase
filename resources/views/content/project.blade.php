@@ -3,12 +3,12 @@
 		<div id="content_top_edit" class="container_top_btn" onclick="show_input_box()"><i class="fa fa-edit"></i> Edit</div>
 		<div id="content_top_cancel_edit" class="container_top_btn" onclick="hide_input_box()" style="display: none;"><i class="fa fa-ban"></i> Cancel Editing</div>
 		<div id="content_top_submit" class="container_top_btn" onclick="submit_input()" style="display: none;"><i class="fa fa-check"></i> Submit Editing</div>
-		<div id="content_delete" class="container_top_btn"><i class="fa fa-times"></i> Delete</div>
+		<div id="content_delete" class="container_top_btn" onclick="delete_item()" ><i class="fa fa-times"></i> Delete</div>
 	</div>
 	<div id="container_content">
 		<div class="content_section">Project info</div>
 		<div class="content_validate_info"></div>
-		<form id="content_project" action="projects/edit/{{ $project['id'] }}">
+		<form id="content_project" action="projects/edit/{{ $project['id'] }}" delete="projects/delete/{{ $project['id'] }}">
 			<div class="content_line">
 				<div class="line_H line_W150 line_TAR line_label line_C_label"><label for="name">Name</label></div>
 				<div class="line_H line_content line_C_content_text line_editable">{{ $project['name'] }}</div>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="line_H line_input line_C_content_input">
 					<select id="status" name="status" class="line_input_control">
-						<option value="0" @if($project['status']==0) selected="selected" @endif>Unknown</option>
+						<option value="0" @if($project['status']==0) selected="selected" @endif disabled="disabled">Unknown</option>
 						<option value="1" @if($project['status']==1) selected="selected" @endif>Waiting</option>
 						<option value="2" @if($project['status']==2) selected="selected" @endif>Developing</option>
 						<option value="3" @if($project['status']==3) selected="selected" @endif>Done</option>

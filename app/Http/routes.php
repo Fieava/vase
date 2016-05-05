@@ -35,6 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 
 		Route::get('/projects/info/{id}', ['name' => 'Project.info', 'uses' => 'ProjectController@info']);
 		Route::post('/projects/edit/{id}', ['name' => 'Project.edit', 'uses' => 'ProjectController@edit']);
+		Route::post('/projects/delete/{id}', ['name' => 'Project.delete', 'uses' => 'ProjectController@delete']);
 		Route::get('/projects/{id}/models', ['name' => 'Project.model', 'uses' => 'ProjectController@model']);
 
 		Route::get('/models/{id}/task', ['name' => 'Task.list_by_model', 'uses' => 'TaskController@listByModel']);

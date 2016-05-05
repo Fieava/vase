@@ -137,7 +137,7 @@ function init_input_box(page) {
 }
 
 function deal_ajax_post_error_response(data) {
-	var response  = JSON.parse(data.responseText);
+	var response = JSON.parse(data.responseText);
 	var dialog_ul = '<ul class="error_dialog_ul">';
 	$.each(response, function (index, value) {
 		dialog_ul += '<li>' + value + '</li>';
@@ -194,4 +194,8 @@ function deal_ajax_response_load_content(container, url) {
 			deal_ajax_error('Wrong response data');
 			break;
 	}
+}
+
+function delete_item() {
+	
 }
