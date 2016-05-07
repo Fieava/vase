@@ -1,4 +1,5 @@
 function load_sub_nav(element, url, callback_data) {
+	// 加载子导航
 	var sub_nav = $("#sub_nav");
 	sub_nav.html('<div id="sub_nav_container"><div id="sub_nav_info"><i class="fa fa-refresh fa-spin fa-5x"></i><span>Loading...</span></div></div>');
 
@@ -26,6 +27,7 @@ function load_sub_nav(element, url, callback_data) {
 }
 
 function load_content(element, url, callback_data) {
+	// 加载内容
 	var content = $('#content');
 	content.html('<div id="content_container"><div id="content_info"><i class="fa fa-refresh fa-spin fa-5x"></i><span>Loading...</span></div></div>');
 
@@ -141,6 +143,7 @@ function init_input_box(page) {
 }
 
 function deal_ajax_post_error_response(data) {
+	// 处理 AJAX 提交错误
 	var response = JSON.parse(data.responseText);
 	var dialog_ul = '<ul class="error_dialog_ul">';
 	$.each(response, function (index, value) {
@@ -162,6 +165,7 @@ function deal_ajax_post_error_response(data) {
 }
 
 function deal_ajax_error(msg) {
+	// 显示 AJAX 错误
 	$('#ajax_error_dialog_box').html(msg + '<br/><br/><strong>Please contact a technician, report the message shown above and the action you trying to do.</strong>').dialog({
 		appendTo: '#content_container',
 		resizable: false,
@@ -175,7 +179,8 @@ function deal_ajax_error(msg) {
 }
 
 function deal_ajax_post_success_response(data) {
-	//console.log(data);
+	// 处理 AJAX 成功提交后的返回数据
+	console.log(data);
 	if (!data) {
 		return;
 	}
@@ -200,6 +205,7 @@ function deal_ajax_post_success_response(data) {
 }
 
 function deal_ajax_response_load_content(container, nav_item, url, callback_data) {
+	// 处理 AJAX 成功后加载页面的回调
 	switch (container) {
 		case 'content':
 			load_content(nav_item, url, callback_data);
@@ -218,6 +224,7 @@ function delete_item() {
 }
 
 function delete_object_from_object(object, delete_item) {
+	// 从无 Key 对象中删除一个元素
 	if (!object) {
 		return false;
 	}
