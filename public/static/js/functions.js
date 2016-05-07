@@ -1,4 +1,4 @@
-function load_sub_nav(element, url) {
+function load_sub_nav(element, url, callback_data) {
 	var sub_nav = $("#sub_nav");
 	sub_nav.html('<div id="sub_nav_container"><div id="sub_nav_info"><i class="fa fa-refresh fa-spin fa-5x"></i><span>Loading...</span></div></div>');
 
@@ -18,11 +18,14 @@ function load_sub_nav(element, url) {
 			} else {
 				sub_nav.load('sub_nav/load_error');
 			}
+		} else if (status == "success") {
+			deal_ajax_post_success_response(callback_data);
 		}
 	});
+	console.log('SUB');
 }
 
-function load_content(element, url) {
+function load_content(element, url, callback_data) {
 	var content = $('#content');
 	content.html('<div id="content_container"><div id="content_info"><i class="fa fa-refresh fa-spin fa-5x"></i><span>Loading...</span></div></div>');
 
@@ -42,8 +45,9 @@ function load_content(element, url) {
 			} else {
 				content.load('content/load_error');
 			}
-		} else {
+		} else if (status == "success") {
 			$('#content_container').height($(window).height() - $('footer').outerHeight());
+			deal_ajax_post_success_response(callback_data);
 		}
 	});
 }
@@ -171,24 +175,37 @@ function deal_ajax_error(msg) {
 }
 
 function deal_ajax_post_success_response(data) {
+	//console.log(data);
+	if (!data) {
+		return;
+	}
 	if (data.code == 0) {
-		switch (data.action) {
-			case 'load_content':
-				deal_ajax_response_load_content(data.container, data.url);
-				break;
-			default :
-				deal_ajax_error('Wrong response data');
-				break;
+		if (data.action.length > 0) {
+			switch (data.action[0].action) {
+				case 'load_content':
+					container = data.action[0].container;
+					nav_item = data.action[0].nav_item;
+					url = data.action[0].url;
+					data.action = delete_object_from_object(data.action, 0);
+					deal_ajax_response_load_content(container, nav_item, url, data);
+					return;
+				default :
+					deal_ajax_error('Wrong response data');
+					break;
+			}
 		}
 	} else {
 
 	}
 }
 
-function deal_ajax_response_load_content(container, url) {
+function deal_ajax_response_load_content(container, nav_item, url, callback_data) {
 	switch (container) {
 		case 'content':
-			load_content(null, url);
+			load_content(nav_item, url, callback_data);
+			break;
+		case 'sub_nav':
+			load_sub_nav(nav_item, url, callback_data);
 			break;
 		default :
 			deal_ajax_error('Wrong response data');
@@ -197,5 +214,30 @@ function deal_ajax_response_load_content(container, url) {
 }
 
 function delete_item() {
-	
+
+}
+
+function delete_object_from_object(object, delete_item) {
+	if (!object) {
+		return false;
+	}
+	if (object.length == 0) {
+		return object;
+	}
+	for (i = 0; i < object.length; i++) {
+		if (i == delete_item) {
+			if (object[i + 1]) {
+				object[i] = object[i + 1];
+			}
+		}
+		if (i > delete_item) {
+			if (object[i + 1]) {
+				object[i] = object[i + 1];
+			}
+		}
+	}
+	delete object[object.length - 1];
+	object.length--;
+
+	return object;
 }

@@ -4,7 +4,7 @@
 	</div>
 	<ul id="sub_nav_list">
 		@foreach($projects as $project)
-			<li onclick="load_content(this, 'projects/info/{{ $project['id'] }}')"><i class="fa fa-archive"></i> {{ $project['development_name'] }}<span
+			<li onclick="load_content(this, 'projects/info/{{ $project['id'] }}')" id="sub_nav_project_{{ $project['id'] }}"><i class="fa fa-archive"></i> {{ $project['development_name'] }}<span
 						class="project_version">{{ $project['version'] }}</span></li>
 		@endforeach
 	</ul>

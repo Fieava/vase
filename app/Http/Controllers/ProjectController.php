@@ -36,6 +36,21 @@ class ProjectController extends Controller {
 			}
 		}
 		$project->save();
-		return response()->json(['code' => '0', 'msg' => 'OK', 'action' => 'load_content', 'container' => 'content', 'url' => 'projects/info/' . Route::input('id')]);
+		return response()->json([
+			                        'code'   => '0',
+			                        'msg'    => 'OK',
+			                        'action' => [[
+				                        'nav_item'  => NULL,
+				                        'action'    => 'load_content',
+				                        'container' => 'sub_nav',
+				                        'url'       => 'sub_nav/projects'
+			                        ], [
+				                        'nav_item'  => '#sub_nav_project_' . Route::input('id'),
+				                        'action'    => 'load_content',
+				                        'container' => 'content',
+				                        'url'       => 'projects/info/' . Route::input('id')
+			                        ]
+			                        ]
+		                        ]);
 	}
 }
