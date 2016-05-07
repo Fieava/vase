@@ -23,7 +23,6 @@ function load_sub_nav(element, url, callback_data) {
 			deal_ajax_post_success_response(callback_data);
 		}
 	});
-	console.log('SUB');
 }
 
 function load_content(element, url, callback_data) {
