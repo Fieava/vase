@@ -143,7 +143,7 @@ function init_input_box(page) {
 
 function deal_ajax_post_error_response(data) {
 	// 处理 AJAX 提交错误
-	var response = JSON.parse(data.responseText);
+	var response  = JSON.parse(data.responseText);
 	var dialog_ul = '<ul class="error_dialog_ul">';
 	$.each(response, function (index, value) {
 		dialog_ul += '<li>' + value + '</li>';
@@ -179,7 +179,7 @@ function deal_ajax_error(msg) {
 
 function deal_ajax_post_success_response(data) {
 	// 处理 AJAX 成功提交后的返回数据
-	console.log(data);
+	//console.log(data);
 	if (!data) {
 		return;
 	}
@@ -187,9 +187,9 @@ function deal_ajax_post_success_response(data) {
 		if (data.action.length > 0) {
 			switch (data.action[0].action) {
 				case 'load_content':
-					container = data.action[0].container;
-					nav_item = data.action[0].nav_item;
-					url = data.action[0].url;
+					container   = data.action[0].container;
+					nav_item    = data.action[0].nav_item;
+					url         = data.action[0].url;
 					data.action = delete_object_from_object(data.action, 0);
 					deal_ajax_response_load_content(container, nav_item, url, data);
 					return;
@@ -219,7 +219,20 @@ function deal_ajax_response_load_content(container, nav_item, url, callback_data
 }
 
 function delete_item() {
-
+	// 删除表单所示项目
+	delete_url = $('form').attr('delete');
+	if (!delete_url) {
+		deal_ajax_error('Can\'t delete this, No action URL given.');
+	}
+	$.post(delete_url, function (data) {
+		deal_ajax_post_success_response(data);
+	}).fail(function (data) {
+		try {
+			deal_ajax_post_error_response(data);
+		} catch (e) {
+			deal_ajax_error(e.message);
+		}
+	});
 }
 
 function delete_object_from_object(object, delete_item) {

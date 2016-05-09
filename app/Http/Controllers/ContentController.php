@@ -8,6 +8,10 @@ class ContentController extends Controller {
 		return view('sub_nav.blank');
 	}
 
+	function blank() {
+		return view('content.blank');
+	}
+
 	function load_error() {
 		return view('content.load_error');
 	}
