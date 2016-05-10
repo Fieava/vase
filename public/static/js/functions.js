@@ -129,7 +129,7 @@ function init_input_box(page) {
 						try {
 							deal_ajax_post_error_response(data);
 						} catch (e) {
-							deal_ajax_error(e.message);
+							deal_ajax_error(data, e.message);
 						}
 					});
 				}
@@ -143,7 +143,7 @@ function init_input_box(page) {
 
 function deal_ajax_post_error_response(data) {
 	// 处理 AJAX 提交错误
-	var response  = JSON.parse(data.responseText);
+	var response = JSON.parse(data.responseText);
 	var dialog_ul = '<ul class="error_dialog_ul">';
 	$.each(response, function (index, value) {
 		dialog_ul += '<li>' + value + '</li>';
@@ -163,18 +163,43 @@ function deal_ajax_post_error_response(data) {
 
 }
 
-function deal_ajax_error(msg) {
+function deal_ajax_error(data, msg) {
 	// 显示 AJAX 错误
-	$('#ajax_error_dialog_box').html(msg + '<br/><br/><strong>Please contact a technician, report the message shown above and the action you trying to do.</strong>').dialog({
-		appendTo: '#content_container',
-		resizable: false,
-		modal: true,
-		buttons: {
-			"Ok": function () {
-				$(this).dialog("close");
+	console.log(data);
+	if (data.responseText == "Unauthorized.") {
+		$('#ajax_error_dialog_box').html('<i class="fa fa-ban"></i> <span>Unauthorized</span>').dialog({
+			appendTo: '#content_container',
+			resizable: false,
+			modal: true,
+			buttons: {
+				"Ok": function () {
+					$(this).dialog("close");
+				}
 			}
-		}
-	});
+		});
+	} else if (data.responseText == "Forbidden.") {
+		$('#ajax_error_dialog_box').html('<i class="fa fa-ban"></i> <span>Forbidden</span>').dialog({
+			appendTo: '#content_container',
+			resizable: false,
+			modal: true,
+			buttons: {
+				"Ok": function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+	} else {
+		$('#ajax_error_dialog_box').html(msg + '<br/><br/><strong>Please contact a technician, report the message shown above and the action you trying to do.</strong>').dialog({
+			appendTo: '#content_container',
+			resizable: false,
+			modal: true,
+			buttons: {
+				"Ok": function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+	}
 }
 
 function deal_ajax_post_success_response(data) {
@@ -187,9 +212,9 @@ function deal_ajax_post_success_response(data) {
 		if (data.action.length > 0) {
 			switch (data.action[0].action) {
 				case 'load_content':
-					container   = data.action[0].container;
-					nav_item    = data.action[0].nav_item;
-					url         = data.action[0].url;
+					container = data.action[0].container;
+					nav_item = data.action[0].nav_item;
+					url = data.action[0].url;
 					data.action = delete_object_from_object(data.action, 0);
 					deal_ajax_response_load_content(container, nav_item, url, data);
 					return;
@@ -224,13 +249,13 @@ function delete_item() {
 	if (!delete_url) {
 		deal_ajax_error('Can\'t delete this, No action URL given.');
 	}
-	$.post(delete_url, function (data) {
+	$.post(delete_url, {'_token': $('#csrf_token').val()}, function (data) {
 		deal_ajax_post_success_response(data);
 	}).fail(function (data) {
 		try {
 			deal_ajax_post_error_response(data);
 		} catch (e) {
-			deal_ajax_error(e.message);
+			deal_ajax_error(data, e.message);
 		}
 	});
 }

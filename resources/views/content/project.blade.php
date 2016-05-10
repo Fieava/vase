@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			<div class="content_line_separator"></div>
-			<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+			<input id="csrf_token" type="hidden" name="_token" value="{{ csrf_token() }}"/>
 		</form>
 		<div class="content_section">Project statistic</div>
 	</div>

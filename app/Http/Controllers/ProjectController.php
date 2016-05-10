@@ -53,4 +53,12 @@ class ProjectController extends Controller {
 			                        ]
 		                        ]);
 	}
+
+	function delete() {
+		$project = Auth::user()->projects()->where('status', '!=', 0)->where('status', '!=', 5)->where('id', Route::input('id'))->first();
+		if (!$project) {
+			return response('Forbidden.', 403);
+		}
+		return view('content.project')->with('project', $project);
+	}
 }
