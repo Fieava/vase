@@ -15,7 +15,7 @@ class ProjectController extends Controller {
 		if (!$project) {
 			return response('Forbidden.', 403);
 		}
-		return view('content.project')->with('project', $project);
+		return view('content.project.project')->with('project', $project);
 	}
 
 	function edit(Request $request) {
@@ -59,6 +59,10 @@ class ProjectController extends Controller {
 		if (!$project) {
 			return response('Forbidden.', 403);
 		}
-		return view('content.project')->with('project', $project);
+		return view('content.project.project')->with('project', $project);
+	}
+
+	function add_form() {
+		return view('content.project.add_form');
 	}
 }

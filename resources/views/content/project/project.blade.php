@@ -95,4 +95,4 @@
 		<div class="content_section">Project statistic</div>
 	</div>
 </div>
-<script>init_input_box('content.project');</script>
+<script>init_input_box('content.project.project');</script>

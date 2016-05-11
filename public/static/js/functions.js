@@ -97,7 +97,47 @@ function submit_input() {
 
 function init_input_box(page) {
 	switch (page) {
-		case 'content.project':
+		case 'content.project.project':
+			// set JQuery UI controls
+			$('#status').selectmenu({width: 192});
+			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "HH:mm:ss"});
+			$('#end_at').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "HH:mm:ss"});
+			$('#version').mask("9.9");
+			$('#project_time_can_be_exceed').selectmenu({width: 192});
+			// set form validation
+			$('#content_project').validate({
+				rules: {
+					name: "required",
+					development_name: "required",
+					start_at: "datetime",
+					end_at: "datetime"
+				},
+				messages: {
+					name: {required: "Project <strong>Name</strong> cannot be null"},
+					development_name: {required: "Project <strong>Development Name</strong> cannot be null"},
+					start_at: {datetime: "<strong>Start At</strong> can only be a date with a time"},
+					end_at: {datetime: "<strong>End At</strong> can only be a date with a time"}
+				},
+				errorContainer: ".content_validate_info",
+				errorLabelContainer: ".content_validate_info",
+				wrapper: "li",
+				submitHandler: function (form) {
+					post_url = $('#content_project').attr('action');
+					$.post(post_url, $(form).serialize(), function (data) {
+						deal_ajax_post_success_response(data);
+					}).fail(function (data) {
+						try {
+							deal_ajax_post_error_response(data);
+						} catch (e) {
+							deal_ajax_error(data, e.message);
+						}
+					});
+				}
+			});
+			$('.line_input').hide();
+			$('.content_validate_info').hide();
+			break;
+		case 'content.project.add_form':
 			// set JQuery UI controls
 			$('#status').selectmenu({width: 192});
 			$('#start_at').datetimepicker({dateFormat: 'yy-mm-dd', timeFormat: "HH:mm:ss"});
@@ -137,8 +177,6 @@ function init_input_box(page) {
 			break;
 		default:
 	}
-	$('.line_input').hide();
-	$('.content_validate_info').hide();
 }
 
 function deal_ajax_post_error_response(data) {

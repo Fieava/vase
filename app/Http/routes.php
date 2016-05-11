@@ -45,6 +45,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/projects/info/{id}', ['name' => 'Project.info', 'uses' => 'ProjectController@info']);
 		Route::post('/projects/edit/{id}', ['name' => 'Project.edit', 'uses' => 'ProjectController@edit']);
 		Route::post('/projects/delete/{id}', ['name' => 'Project.delete', 'uses' => 'ProjectController@delete']);
+		Route::get('/projects/add_form', ['name' => 'Project.add_form', 'uses' => 'ProjectController@add_form']);
 		Route::get('/projects/{id}/models', ['name' => 'Project.model', 'uses' => 'ProjectController@model']);
 
 		// 内容区域 模块页面
